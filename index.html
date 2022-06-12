@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h2>บันทึกเป้าหมายการผลิต <small id="datadate"> </small></h2>
+
+        <div class="row" style="padding: 10px;">
+            <div class="col-4 col-md-2">
+                <div class="form-group">
+                    <label for="team">ทีม </label>
+                    <input type="text" class="form-control" id="team" placeholder="กรอกทีม">
+                </div>
+
+            </div>
+            <div class="col-4 col-md-4">
+                <div class="form-group">
+                    <label for="target">เป้าหมาย </label>
+                    <input type="text" class="form-control" id="target" placeholder="กรอกเป้าหมาย">
+                </div>
+
+            </div>
+            <div class="col-4 col-md-4">
+                <div class="form-group">
+                    <label for="produce">ผลิตได้ </label>
+                    <input type="text" class="form-control" id="produce" placeholder="กรอกผลิตได้">
+                </div>
+
+            </div>
+            <div class="col-2 col-md-2 ">
+                <div class="form-group">
+
+                    <button class="btn btn-primary  checkmargin" style="margin-top: 31px;"
+                        onclick="getvalue()">บันทึก</button>
+                </div>
+
+
+
+            </div>
+        </div>
+        <ul class="responsive-table" id="addli">
+            <li class="table-header">
+                <div class="col col-1">ทีม</div>
+                <div class="col col-2">เป้าหมาย</div>
+                <div class="col col-2">ผลิตได้</div>
+                <div class="col col-2">ผลต่าง</div>
+                <div class="col col-2">สถานะ</div>
+                <div class="col col-2">แก้ไข/ลบ</div>
+            </li>
+            <li class="table-row">
+
+
+                <div class="col col-1 colA" data-label="ทีม">1</div>
+                <div class="col col-2 colA" data-label="เป้าหมาย">400</div>
+                <div class="col col-2 colA" data-label="ผลิตได้">200</div>
+                <div class="col col-2 colA" data-label="ผลต่าง">-200</div>
+                <div class="col col-2 colA" data-label="สถานะ">
+                    <div class="success">สำเร็จ</div>
+                </div>
+                <div class="col col-2 colA" data-label="แก้ไข/ลบ">
+                    <a href="#" class="mr-1">
+                        <img class="icon" src="/img/pencil-icon.png" alt="" srcset="">
+                    </a>
+
+                    <a href="#" ">
+                        <img class=" icon" src="/img/bin-icon.png" alt="">
+                    </a>
+
+                </div>
+            </li>
+            <li class="table-row">
+
+
+                <div class="col col-1 colA" data-label="ทีม">2</div>
+                <div class="col col-2 colA" data-label="เป้าหมาย">400</div>
+                <div class="col col-2 colA" data-label="ผลิตได้">200</div>
+                <div class="col col-2 colA" data-label="ผลต่าง">-200</div>
+                <div class="col col-2 colA" data-label="สถานะ">
+                    <div class="warnning">กำลังทำ</div>
+                </div>
+                <div class="col col-2 colA" data-label="แก้ไข/ลบ">
+                    <a href="#" class="mr-1">
+                        <img class="icon" src="/img/pencil-icon.png" alt="" srcset="">
+                    </a>
+
+                    <a href="#" ">
+                        <img class=" icon" src="/img/bin-icon.png" alt="">
+                    </a>
+
+                </div>
+            </li>
+            <li class="table-row">
+
+
+                <div class="col col-1 colA" data-label="ทีม">3</div>
+                <div class="col col-2 colA" data-label="เป้าหมาย">400</div>
+                <div class="col col-2 colA" data-label="ผลิตได้">200</div>
+                <div class="col col-2 colA" data-label="ผลต่าง">-200</div>
+                <div class="col col-2 colA" data-label="สถานะ">
+                    <div class="success">สำเร็จ</div>
+                </div>
+                <div class="col col-2 colA" data-label="แก้ไข/ลบ">
+                    <a href="#" class="mr-1">
+                        <img class="icon" src="/img/pencil-icon.png" alt="" srcset="">
+                    </a>
+
+                    <a href="#" ">
+                        <img class=" icon" src="/img/bin-icon.png" alt="">
+                    </a>
+
+                </div>
+            </li>
+            <li class="table-row">
+
+
+                <div class="col col-1 colA" data-label="ทีม">4</div>
+                <div class="col col-2 colA" data-label="เป้าหมาย">400</div>
+                <div class="col col-2 colA" data-label="ผลิตได้">200</div>
+                <div class="col col-2 colA" data-label="ผลต่าง">-200</div>
+                <div class="col col-2 colA" data-label="สถานะ">
+                    <div class="success">สำเร็จ</div>
+                </div>
+                <div class="col col-2 colA" data-label="แก้ไข/ลบ">
+                    <a href="#" class="mr-1">
+                        <img class="icon" src="/img/pencil-icon.png" alt="" srcset="">
+                    </a>
+
+                    <a href="#" ">
+                        <img class=" icon" src="/img/bin-icon.png" alt="">
+                    </a>
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</body>
+<style>
+    body {
+        font-family: 'lato', sans-serif;
+    }
+
+    .responsive-table {
+        padding: 10px;
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .success {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+        width: 80px;
+        text-align: center;
+        border-radius: 5px;
+        padding: 1px;
+    }
+
+    .warnning {
+        color: #fff;
+        background-color: #ffc107;
+        border-color: #ffc107;
+        width: 80px;
+        text-align: center;
+        border-radius: 5px;
+        padding: 1px;
+    }
+
+    .danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+        width: 80px;
+        text-align: center;
+        border-radius: 5px;
+        padding: 1px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h2 {
+        font-size: 26px;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    h2 small {
+        font-size: 0.5em;
+    }
+
+    .responsive-table li {
+        border-radius: 3px;
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    .responsive-table .table-header {
+        background-color: #95A5A6;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .responsive-table .table-row {
+        background-color: #ffffff;
+        box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .responsive-table .col-1 {
+        flex-basis: 10%;
+    }
+
+    .responsive-table .col-2 {
+        flex-basis: 40%;
+    }
+
+    .responsive-table .col-3 {
+        flex-basis: 25%;
+    }
+
+    .responsive-table .col-4 {
+        flex-basis: 25%;
+    }
+
+    @media (max-width: 767px) {
+        .responsive-table .table-header {
+            display: none;
+        }
+
+        .responsive-table li {
+            display: block;
+        }
+
+        .responsive-table .col {
+            flex-basis: 100%;
+        }
+
+        .responsive-table .col {
+            display: flex;
+            padding: 10px 0;
+        }
+
+        .colA {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+        }
+
+        .responsive-table .col:before {
+            color: #6C7A89;
+            padding-right: 20px;
+            content: attr(data-label);
+            flex-basis: 50%;
+            text-align: left;
+
+        }
+
+        .checkmargin {
+            margin-top: 0px !important;
+        }
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+
+<script>
+    var desktopBtn = $("#desktop");
+    var mobileBtn = $("#mobile");
+    var body = $('body');
+
+    $(document).ready(function () {
+        let date = new Date().toLocaleDateString('th-TH', {
+            day: 'numeric'
+        })
+        let month = new Date().toLocaleDateString('th-TH', {
+            month: 'long'
+        })
+        let year = new Date().toLocaleDateString('en-us', {
+            year: 'numeric'
+        })
+        let dateyear = parseInt(year) + 543
+
+        const FormattedDate = `${date} / ${month} / ${dateyear}`
+        let A = document.getElementById("datadate")
+        A.innerHTML = `${FormattedDate}`
+    });
+
+    const getvalue = () => {
+        let team = $("#team").val()
+        let target = $("#target").val()
+        let produce = $("#produce").val()
+        let total = target - produce
+        let txt = `
+        <li class="table-row">
+
+
+            <div class="col col-1 colA" data-label="ทีม">${team}</div>
+            <div class="col col-2 colA" data-label="เป้าหมาย">${target}</div>
+            <div class="col col-2 colA" data-label="ผลิตได้">${produce}</div>
+            <div class="col col-2 colA" data-label="ผลต่าง">${total}</div>
+            <div class="col col-2 colA" data-label="สถานะ">
+                <div class="success">สำเร็จ</div>
+            </div>
+            <div class="col col-2 colA" data-label="แก้ไข/ลบ">
+                <a href="#" class="mr-1">
+                    <img class="icon" src="/img/pencil-icon.png" alt="" srcset="">
+                </a>
+
+                <a href="#" ">
+        <img class=" icon" src="/img/bin-icon.png" alt="">
+                </a>
+
+            </div>
+        </li>
+        
+        `
+        $("#addli").append(txt);
+
+
+    }
+    desktopBtn.on('click', function () {
+        body.addClass('large-screen');
+        togglePrimaryButtonStyle($(this));
+    })
+
+    mobileBtn.on('click', function () {
+        body.removeClass('large-screen');
+        togglePrimaryButtonStyle($(this));
+    })
+
+    function togglePrimaryButtonStyle(el) {
+        var sibling = el.parent('.btn-group').siblings('.btn-group').find('.btn');
+        el.addClass('btn-primary');
+        sibling.removeClass('btn-primary').addClass('btn-default');
+    }
+</script>
+
+</html>
